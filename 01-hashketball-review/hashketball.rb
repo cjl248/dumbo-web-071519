@@ -117,6 +117,17 @@ def game_hash
   }
 end
 
+def players
+  # combine the players from home and away
+  game_hash[:away][:players] + game_hash[:home][:players]
+end
+
+def find_player(player_name)
+  players.find do |player|
+    # compare player_name with each name
+    player[:name] == player_name
+  end
+end
 
 def num_points_scored(player_name)
   find_player(player_name)[:points]
@@ -126,20 +137,12 @@ def get_shoe_size(player_name)
   find_player(player_name)[:shoe]
 end
 
-def players
-  game_hash[:home][:players].concat(game_hash[:away][:players])
-end
 
-def find_player(player_name)
-  players.find do |player|
-    # find the player we wanted
-    player_name == player[:name]
-  end
-end
-
-num_points_scored("Brendan Haywood")
 
 
 binding.pry
 
-puts "hasketball just finished running"
+num_points_scored("DeSagna Diop") # => 24
+
+
+puts "sup, I'm in the hashketball file I finish running"
