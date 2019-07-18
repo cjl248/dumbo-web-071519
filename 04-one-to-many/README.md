@@ -15,9 +15,9 @@
 
 ## Deliverables
 
-<!-- * Create a User class. The class should have these methods: -->
-  <!-- * `#initialize` which takes a username -->
-    <!-- * and have a reader method for the username -->
+* Create a User class. The class should have these methods:
+  * `#initialize` which takes a username
+    * and have a reader method for the username
   * `#tweets` that returns an array of Tweet instances
   * `#post_tweet`
       * that takes a message,
