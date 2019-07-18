@@ -3,6 +3,8 @@
 ## Objectives
 
 * Explain domain modeling
+  - Domain: Area
+  - Modeling: Representation
 * Implement one object to many objects relationship
   * One object has many objects
   * One object belongs to another object
@@ -13,9 +15,9 @@
 
 ## Deliverables
 
-* Create a User class. The class should have these methods:
-  * `#initialize` which takes a username
-    * and have a reader method for the username
+<!-- * Create a User class. The class should have these methods: -->
+  <!-- * `#initialize` which takes a username -->
+    <!-- * and have a reader method for the username -->
   * `#tweets` that returns an array of Tweet instances
   * `#post_tweet`
       * that takes a message,
