@@ -7,14 +7,33 @@ class Animal
   end
 
   def eat(food)
-    p "Nom nom, I am eating #{food}. 😋"
-  end
-
-  def sleep
-    "zzz 😴"
+    "Nom nom nom, I am eating #{food}! 😋"
   end
 
   def poop
-    "💩"
+    "🚽"
   end
+
+  def reproduce
+    "I am reproducing."
+  end
+
+  def die
+    "Oh no. I am dead."
+  end
+
+  def walk
+    "My feet hurt."
+  end
+
+
+
+
+
+
+
+
+
+
+
 end

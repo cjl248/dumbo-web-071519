@@ -9,7 +9,7 @@
   * modules
     `include`
     `prepend`
-    `include`
+    `extend`
 
   * inheritance
 2. Build classes that produce objects that rely on one another through inheritance.
