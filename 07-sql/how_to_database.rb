@@ -11,6 +11,7 @@ having rock_tracks > 30
 order by rock_tracks DESC"
 
 $db = SQLite3::Database.new('chinook.db')
+$db.execute(query)
 
 binding.pry
 
