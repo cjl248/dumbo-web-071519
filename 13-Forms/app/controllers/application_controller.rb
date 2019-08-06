@@ -12,9 +12,39 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/students' do
-    @students = Student.all
+    # binding.pry
+    if params[:search_name]
+      # @students = Student.where("name like ?", "%#{params[:search_name]}%")
+      @students = Student.where(name: params[:search_name])
+    else
+      @students = Student.all
+    end
     erb :index
   end
+
+  get '/students/:id' do
+     @student = Student.find(params[:id])
+     # @student = Student.find_by(id: params[:id])
+     erb :show
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,10 +1,10 @@
 Student.destroy_all
 
-ryan = Student.create(name: "Ryan", age: 26)
+ryan = Student.create(name: "Ryan", age: 26, hometown: "NYC")
 
-mackenzie = Student.create(name: "Mackenzie", age: 22)
+mackenzie = Student.create(name: "Mackenzie", age: 22, hometown: "NYC")
 
-harry_potter = Student.create(name: "Harry", age: 12343)
+harry_potter = Student.create(name: "Harry", age: 12343, hometown: "NYC")
 
 student_names = [
   "Alessandra Vertrees",
@@ -26,5 +26,5 @@ student_names = [
 ]
 
 student_names.shuffle.each do |student_name|
-  Student.create(name: student_name, age: rand(50))
+  Student.create(name: student_name, age: rand(50), hometown: "NYC")
 end
