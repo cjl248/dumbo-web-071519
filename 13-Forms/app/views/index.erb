@@ -1,0 +1,10 @@
+<h1> All the Students </h1>
+
+<ul> 
+<% @students.each do |student_instance| %>
+  <marquee>  <%= student_instance.name_and_age %> </marquee>
+<% end %>
+
+</ul>
+
+
