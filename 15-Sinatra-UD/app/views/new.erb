@@ -1,0 +1,14 @@
+<h1>Form to Make a New Student</h1>
+
+<form action="/students" method="POST">
+  <label for="student_name">Name:</label>
+  <input type="text" name="student[name]" id="student_name">
+
+  <label for="student_age">Age:</label>
+  <input type="number" name="student[age]" id="student_age">
+
+  <label for="student_hometown">Hometown:</label>
+  <input type="text" name="student[hometown]" id="student_hometown">
+
+  <input type="submit" name="submit" id="submit" value="Create a new Student!">
+</form>

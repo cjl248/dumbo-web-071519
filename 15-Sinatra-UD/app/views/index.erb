@@ -1,0 +1,19 @@
+<h1> All the Students </h1>
+
+<form action="/students" method="GET">
+  <input type="text" name="search_name" >
+  <input type="submit" value="Search">
+</form>
+
+
+<ul>
+
+<% @students.each do |student_instance| %>
+
+  <a href="/students/<%= student_instance.id %>">
+    <li><%= student_instance.name_and_age %></li>
+  </a>
+
+<% end %>
+
+</ul>
