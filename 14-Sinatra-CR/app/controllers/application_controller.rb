@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  # INDEX
   get '/students' do
     # binding.pry
     if params[:search_name]
@@ -22,8 +23,22 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  # NEW
+  get '/students/new' do
+    erb :new
+  end
+
+  # CREATE
+  post '/students' do
+    @student = Student.create(params[:student])
+    redirect "/students/#{@student.id}"
+    # erb :show
+  end
+
+  # SHOW
   get '/students/:id' do
      @student = Student.find(params[:id])
+     @hello = "hello"
      # @student = Student.find_by(id: params[:id])
      erb :show
   end
