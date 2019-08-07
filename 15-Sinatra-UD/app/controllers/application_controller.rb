@@ -5,6 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    set :method_override, true
   end
 
   get '/' do
@@ -36,8 +37,51 @@ class ApplicationController < Sinatra::Base
 
   # SHOW
   get '/students/:id' do
-     @student = Student.find(params[:id])
+     find_student
      erb :show
   end
+
+  # EDIT
+  get '/students/:id/edit' do
+    find_student
+    erb :edit
+  end
+
+  # UPDATE
+  patch "/students/:id" do
+    find_student
+    @student.update(params[:student])
+    redirect "/students/#{@student.id}"
+  end
+
+  # DESTROY
+  delete "/students/:id" do
+    find_student
+    @student.destroy
+    redirect "/students"
+  end
+
+  patch "/students/:id/increase" do
+    find_student
+    @student.update(age: @student.age + 1)
+    redirect "/students/#{@student.id}"
+  end
+
+
+  def find_student
+    @student = Student.find(params[:id])
+  end
+
+
+
+
+
+
+
+
+
+
+
+
 
 end
