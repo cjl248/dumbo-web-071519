@@ -1,0 +1,22 @@
+<h1>This is the show page</h1>
+
+<p>
+  Name: <%= @student.name %>
+</p>
+
+<p>
+  Age: <%= @student.age %>
+  <form action="/students/<%= @student.id %>/increase" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="submit" value="⬆️">
+  </form>
+</p>
+
+<p>
+  Hometown: <%= @student.hometown %>
+</p>
+
+<form action="/students/<%= @student.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Take to the farm upstate.">
+</form>
