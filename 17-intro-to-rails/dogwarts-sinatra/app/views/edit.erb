@@ -1,0 +1,9 @@
+<h1>Editing</h1>
+
+<form action="/doggos/<%= @doggo.id %> " method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  Name: <input type="text" name="doggo[name]">
+  Wand Core: <input type="text" name="doggo[wand_core]">
+  House: <input type="text" name="doggo[house]">
+  <input type="submit" value="Create Doggo">
+</form>

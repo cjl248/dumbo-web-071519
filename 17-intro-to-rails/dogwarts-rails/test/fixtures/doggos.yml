@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  house: MyString
+  wand_core: MyString
+  tail_length: MyString
+
+two:
+  name: MyString
+  house: MyString
+  wand_core: MyString
+  tail_length: MyString
