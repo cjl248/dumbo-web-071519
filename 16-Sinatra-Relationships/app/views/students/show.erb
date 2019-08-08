@@ -1,6 +1,18 @@
 <h1>This is the show page</h1>
 
 <p>
+  <a href="/students">
+    See all Students
+  </a>
+</p>
+
+<p>
+  <a href="/students/<%= @student.id %>/edit">
+    Edit Student
+  </a>
+</p>
+
+<p>
   Name: <%= @student.name %>
 </p>
 
@@ -20,3 +32,45 @@
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Take to the farm upstate.">
 </form>
+
+<h2>Projects</h2>
+
+<a href="/projects/new">
+  Make a new Project
+</a>
+
+<% if @student.projects.any? %>
+
+  <ul>
+    <% @student.projects.each do |project| %>
+      <li>
+        <%= project.name %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <p>This person does not have any projects.</p>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->

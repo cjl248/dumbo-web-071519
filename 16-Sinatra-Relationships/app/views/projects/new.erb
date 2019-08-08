@@ -1,0 +1,23 @@
+<h1>Form for Logging a Project</h1>
+
+<form action="/projects" method="POST">
+
+  <label for="project_name">Name</label>
+  <input type="text" name="project[name]" id="project_name">
+
+  <label for="project_wow">Wow factor</label>
+  <input type="integer" name="project[wow_factor]" id="project_wow">
+
+  <label for="project_student_id">Student ID</label>
+
+  <select name="project[student_id]">
+    <% @students.each do |student| %>
+      <option value="<%= student.id %>">
+        <%= student.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Log a new project.">
+
+</form>
