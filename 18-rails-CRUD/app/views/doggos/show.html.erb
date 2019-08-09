@@ -11,3 +11,7 @@
 <p>
   Wand Core: <%= @doggo.wand_core %>
 </p>
+
+<%= button_to "Avada Kedavra", @doggo, method: :delete %>
+
+<%= link_to "Edit this Doggo", edit_doggo_path(@doggo) %>
