@@ -1,0 +1,12 @@
+<h1>Hello! This is a list of all the doggos. </h1>
+
+<ul>
+  <% @doggos.each do |doggy| %>
+    <li>
+      <%= link_to doggy.name, "/doggos/#{doggy.id}" %>
+      <%= link_to doggy.name, doggo_path(doggy.id) %>
+      <%= link_to doggy.name, doggo_path(doggy) %>
+      <%= link_to doggy.name, doggy %>
+    </li>
+  <% end %>
+</ul>
