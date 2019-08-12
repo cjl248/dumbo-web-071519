@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :doggo_spells
   resources :spells
   resources :doggos
   # get '/doggos', to: 'doggos#index', as: "doggos"

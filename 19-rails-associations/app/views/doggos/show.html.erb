@@ -15,3 +15,31 @@
 <%= button_to "Avada Kedavra", @doggo, method: :delete %>
 
 <%= link_to "Edit this Doggo", edit_doggo_path(@doggo) %>
+
+<h2>All the Spells</h2>
+
+<ul>
+  <% @doggo.doggo_spells.each do |doggo_spell| %>
+    <li>
+      <%= link_to "#{doggo_spell.spell.incantation} - #{doggo_spell.location}", spell_path(doggo_spell.spell_id) %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->

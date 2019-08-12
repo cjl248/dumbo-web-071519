@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_134253) do
+ActiveRecord::Schema.define(version: 2019_08_12_152322) do
+
+  create_table "doggo_spells", force: :cascade do |t|
+    t.string "location"
+    t.integer "doggo_id"
+    t.integer "spell_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doggo_id"], name: "index_doggo_spells_on_doggo_id"
+    t.index ["spell_id"], name: "index_doggo_spells_on_spell_id"
+  end
 
   create_table "doggos", force: :cascade do |t|
     t.string "name"
