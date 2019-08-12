@@ -1,0 +1,17 @@
+<h1>Show Page</h1>
+
+<%= link_to "Take us to the kennel", doggos_path %>
+
+<p>
+  Name: <%= @doggo.name %>
+</p>
+<p>
+  House: <%= @doggo.house %>
+</p>
+<p>
+  Wand Core: <%= @doggo.wand_core %>
+</p>
+
+<%= button_to "Avada Kedavra", @doggo, method: :delete %>
+
+<%= link_to "Edit this Doggo", edit_doggo_path(@doggo) %>

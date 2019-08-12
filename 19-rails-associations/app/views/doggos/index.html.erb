@@ -1,0 +1,19 @@
+<h1>Hello! This is a list of all the doggos. </h1>
+
+<%= form_tag "/doggos", method: :get do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search!!" %>
+<% end %>
+
+<%= link_to "Create a new doggo", new_doggo_path %>
+
+<ul>
+  <% @doggos.each do |doggy| %>
+    <li>
+      <%# link_to doggy.name, "/doggos/#{doggy.id}" %>
+      <%# link_to doggy.name, doggo_path(doggy.id) %>
+      <%# link_to doggy.name, doggo_path(doggy) %>
+      <%= link_to doggy.name, doggy %>
+    </li>
+  <% end %>
+</ul>
