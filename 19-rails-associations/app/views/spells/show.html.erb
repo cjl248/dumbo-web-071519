@@ -1,0 +1,16 @@
+<h1>Show Page</h1>
+
+<p>
+  Incantation: <%= @spell.incantation %>
+</p>
+
+<p>
+  Description: <%= @spell.description %>
+</p>
+
+<p>
+  Intensity: <%= @spell.intensity %>
+</p>
+
+
+<%= button_to "Delete Spell", @spell, method: :delete %>
