@@ -1,0 +1,13 @@
+<h1>Form to House this Doggo.</h1>
+
+<%= form_for @doggo do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :wand_core %>
+  <%= f.text_field :wand_core %>
+  <%= f.label :house %>
+  <%= f.text_field :house %>
+  <%= f.submit %>
+
+<% end %>
