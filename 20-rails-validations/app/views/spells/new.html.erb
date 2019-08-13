@@ -1,3 +1,15 @@
+<% if flash[:errors] %>
+
+  <ul>
+    <% flash[:errors].each do |error_message| %>
+      <li>
+        <%= error_message %>
+      </li>
+    <% end %>
+  </ul>
+
+<% end %>
+
 <h1>Create a new spell</h1>
 
 <%= render 'form' %>

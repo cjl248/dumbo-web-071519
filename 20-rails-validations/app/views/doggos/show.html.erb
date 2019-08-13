@@ -13,7 +13,6 @@
 </p>
 
 <%= button_to "Avada Kedavra", @doggo, method: :delete %>
-
 <%= link_to "Edit this Doggo", edit_doggo_path(@doggo) %>
 
 <h2>All the Spells</h2>
@@ -26,8 +25,20 @@
   <% end %>
 </ul>
 
+<h2>Log a Spell</h2>
+
+<%= form_for(@doggo_spell) do |f| %>
+  <%= f.hidden_field :doggo_id, value: @doggo.id %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
 
 
+  <%= f.label :spell_id %>
+  <%= f.collection_select :spell_id, @spells, :id, :incantation %>
+
+  <%= f.submit %>
+<% end %>
 
 
 

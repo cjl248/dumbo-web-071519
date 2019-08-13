@@ -14,15 +14,25 @@ class SpellsController < ApplicationController
 
   def create
     @spell = Spell.create(spell_params)
-    redirect_to @spell
+    if @spell.valid?
+      redirect_to @spell
+    else
+      flash[:errors] = @spell.errors.full_messages
+      redirect_to new_spell_path
+    end
   end
 
   def edit
   end
 
   def update
-    @spell.update(spell_params)
-    redirect_to @spell
+    if @spell.update(spell_params)
+      redirect_to @spell
+    else
+      flash[:errors] = @spell.errors.full_messages
+      redirect_to edit_spell_path(@spell)
+    end
+
   end
 
   def destroy

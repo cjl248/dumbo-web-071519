@@ -11,6 +11,8 @@ class DoggosController < ApplicationController
   end
 
   def show
+    @doggo_spell = DoggoSpell.new
+    @spells = Spell.all
   end
 
   def new
