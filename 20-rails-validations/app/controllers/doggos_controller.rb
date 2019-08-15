@@ -1,5 +1,5 @@
 class DoggosController < ApplicationController
-  before_action :find_doggo, only: [:show, :edit, :update, :destroy]
+  before_action :find_doggo, only: [:show, :edit, :update, :destroy, :spells]
 
   def index
     if params[:search]
@@ -17,10 +17,13 @@ class DoggosController < ApplicationController
 
   def new
     @doggo = Doggo.new
+    @spells = Spell.all
   end
 
   def create
+    # byebug
     @doggo = Doggo.create(doggo_params)
+    @doggo.spell_ids = params[:doggo][:spell_ids]
     # redirect_to "/doggos/#{@doggo.id}"
     # redirect_to doggo_path(@doggo)
     redirect_to @doggo
@@ -39,6 +42,11 @@ class DoggosController < ApplicationController
     redirect_to doggos_path
   end
 
+  def spells
+    @doggo_spell = DoggoSpell.new
+    @spells = Spell.all
+  end
+
   private
 
   def doggo_params
@@ -48,6 +56,7 @@ class DoggosController < ApplicationController
   def find_doggo
     @doggo = Doggo.find(params[:id])
   end
+
 
 
 

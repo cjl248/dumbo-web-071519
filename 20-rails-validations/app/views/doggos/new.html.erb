@@ -8,6 +8,8 @@
   <%= f.text_field :wand_core %>
   <%= f.label :house %>
   <%= f.text_field :house %>
+  <%= f.label :spells %>
+  <%= f.collection_check_boxes :spell_ids, @spells, :id, :incantation %>
   <%= f.submit %>
 
 <% end %>
