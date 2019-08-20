@@ -1,0 +1,9 @@
+<h1>All My Votes</h1>
+
+<ul>
+  <% @votes.each do |vote| %>
+    <li>
+      <%= vote.color.hex %>
+    </li>
+  <% end %>
+</ul>
