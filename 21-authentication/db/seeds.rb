@@ -33,6 +33,13 @@ student_names = [
   "Ross Perkel"
 ]
 
+student_names.shuffle.each do |name|
+  User.create(
+    name: name,
+    password: "abc123",
+    username: name.split(" ").first
+  )
+end
 
 
 
