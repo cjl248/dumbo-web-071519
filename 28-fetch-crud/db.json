@@ -1,0 +1,131 @@
+{
+  "to_do_items": [
+    {
+      "id": 1,
+      "title": "Walk the cat",
+      "done": true
+    },
+    {
+      "title": "Learn how to apply Fetch to front-end problems",
+      "id": 3,
+      "done": false
+    },
+    {
+      "title": "understand REST",
+      "done": true,
+      "id": 8
+    },
+    {
+      "title": "Do RESTful ROuting",
+      "done": false,
+      "id": 9
+    },
+    {
+      "title": "ghf",
+      "done": false,
+      "id": 10
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 11
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 12
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 13
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 14
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 15
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 16
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 17
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 18
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 19
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 20
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 21
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 22
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 23
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 24
+    },
+    {
+      "title": "Finish the create",
+      "done": false,
+      "id": 25
+    },
+    {
+      "title": "hello it works??? please",
+      "done": false,
+      "id": 26
+    },
+    {
+      "title": "potato",
+      "done": false,
+      "id": 27
+    }
+  ],
+  "spice-girls": [
+    {
+      "name": "Victoria Beckham",
+      "adjective": "Posh",
+      "id": 3
+    },
+    {
+      "adjective": "Sporty",
+      "name": "Melanie Chisolm",
+      "id": 5
+    },
+    {
+      "adjective": "Scary",
+      "name": "Melanie Brown",
+      "id": 6
+    }
+  ]
+}
