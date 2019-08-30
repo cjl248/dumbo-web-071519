@@ -18,13 +18,16 @@
 2. Make POST /to_do_items fetch happen
 3. Slap one single LI on the DOM!
 
-
 ## Update
+1. When click checkbox event happens
+2. Make PATCH /to_do_items/:id 
+3. Slap a done class on the LI on the DOM
 
 ## Delete
 
-
-
+1. When Click on the X button event happens
+2. Make DELETE /to_do_items/:id fetch
+3. Slap the LI off the DOM
 
 
 
