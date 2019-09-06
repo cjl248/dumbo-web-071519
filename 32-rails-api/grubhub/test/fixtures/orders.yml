@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  placed_time: 2019-09-06 11:27:38
+  delivery_time: 2019-09-06 11:27:38
+  price: 1
+
+two:
+  item_name: MyString
+  placed_time: 2019-09-06 11:27:38
+  delivery_time: 2019-09-06 11:27:38
+  price: 1
