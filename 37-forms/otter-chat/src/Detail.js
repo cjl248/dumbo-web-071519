@@ -2,6 +2,7 @@ import React from 'react';
 
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
+import uuid from 'uuid'
 
 // const channel = 
 
@@ -9,7 +10,8 @@ import MessageForm from './MessageForm'
 class Detail extends React.Component {
 
   state = {
-    name: "#splashing",
+    channelName: "#splashing",
+    nextAvailableId: 7,
     messages: [
       {
           id: 1,
@@ -50,6 +52,20 @@ class Detail extends React.Component {
     ]
   }
 
+  createMessage = (newMessage) => {
+    this.setState({
+      nextAvailableId: this.state.nextAvailableId + 1,
+      messages: [
+        ...this.state.messages,
+        {
+          ...newMessage,
+          numberOfLikes: 0,
+          id: uuid()//this.state.nextAvailableId
+        }
+      ]
+    })
+  }
+
   likeButtonClicked = (id) =>{
     console.log(id)
     this.setState({
@@ -67,11 +83,11 @@ class Detail extends React.Component {
 
   render(){
     return <main id="detail">
-      <h1 id="channel-title">{ this.state.name }</h1>
+      <h1 id="channel-title">{ this.state.channelName }</h1>
       <MessageList 
         messages={ this.state.messages } 
         likeButtonClicked={ this.likeButtonClicked } />
-      <MessageForm />
+      <MessageForm onSubmit={ this.createMessage } />
     </main>
   }
 

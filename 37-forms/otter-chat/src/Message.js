@@ -37,7 +37,8 @@ class Message extends React.Component {
     const { id, sender, text, numberOfLikes } = this.props.message
     return (<li>
         { sender }: { text } 
-        <button onClick={ (event) => this.props.likeButtonClicked(id) }>
+        <button 
+          onClick={ (event) => this.props.likeButtonClicked(id) }>
           🌶 { numberOfLikes }
         </button> 
       </li>)

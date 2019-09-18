@@ -11,7 +11,7 @@ class MessageList extends React.Component {
         messages.map((message) => {
           // console.log(message)
           return (<Message 
-                    key={ message.id } 
+                    key={ message.id }  //so react will stop yelling at us
                     message={ message }
                     likeButtonClicked={ likeButtonClicked } />)
         })
