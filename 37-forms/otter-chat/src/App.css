@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+#root {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+#sidebar {
+  box-sizing: border-box;
+  min-height: 100%;
+  background: #004;
+  color: #ccf;
+  padding: 20px;
+  height: 100%
+}
+
+#detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+#channel-title {
+  padding: 0 20px;
+}
+#message-list {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+#channel-list {
+  overflow: scroll;
+}
+#message-form {
+  padding: 20px;
+  display: flex;
+}
+#message-form input[type="text"] {
+  flex-grow: 1;
+}
+#message-form input {
+  font-size: 18px;
+  border: 1px solid #aaa;
+  padding: 5px;
+  margin: 0;
+}
+#message-form input:not(:last-child) {
+  border-right: 0
+}
