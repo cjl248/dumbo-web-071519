@@ -7,19 +7,35 @@ import SnackDashboard from './SnackDashboard'
 class App extends React.Component {
 
   state = {
-    loggedInUserId: null
+    loggedInUserId: null,
+    token: null
+  }
+
+  componentDidMount(){
+    this.setState({
+      token: localStorage.token
+    })
   }
 
   isLoggedIn(){
-    return !!this.state.loggedInUserId
+    return !!this.state.token//!!this.state.loggedInUserId
   }
-  loggedInUserId(){
-    return this.state.loggedInUserId
+  
+  logInUser = (token, userId) => {
+    localStorage.token = token
+    localStorage.userId = userId
+    this.setState({
+      token: token,
+      loggedInUserId: userId
+    })
   }
 
-  setLoggedInUserId = (userId) => {
+  logOutUser = () => {
+    delete localStorage.token
+    delete localStorage.userId
     this.setState({
-      loggedInUserId: userId
+      token: null,
+      loggedInUserId: null
     })
   }
 
@@ -27,8 +43,11 @@ class App extends React.Component {
     return (<main>
       {
         this.isLoggedIn() 
-        ? <SnackDashboard loggedInUserId={ this.loggedInUserId() } /> 
-        : <LogIn setLoggedInUserId={ this.setLoggedInUserId } />
+        ? <>
+          <button onClick={ this.logOutUser }>LOG OUT</button>
+          <SnackDashboard token={ this.state.token } loggedInUserId={ this.state.loggedInUserId } />
+          </> 
+        : <LogIn logInUser={ this.logInUser } />
       }
     </main>);
   }

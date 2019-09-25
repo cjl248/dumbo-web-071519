@@ -8,8 +8,12 @@ class SnackDashboard extends React.Component {
   }
 
   componentDidMount(){
-    fetch("http://localhost:3000/snacks")
-      .then(res => res.json())
+    const { token } = this.props
+    fetch("http://localhost:3000/snacks", {
+      headers: {
+        "Authorization": token
+      }
+    }).then(res => res.json())
       .then(data => this.setState({
         allSnacks: data
       }))
@@ -17,23 +21,26 @@ class SnackDashboard extends React.Component {
     const { loggedInUserId } = this.props
 
     if (loggedInUserId){
-      fetch(`http://localhost:3000/users/${ loggedInUserId }/snacks`)
+      fetch(`http://localhost:3000/users/${ loggedInUserId }`, {
+        headers: {
+          "Authorization": token
+        }
+      })
         .then(res => res.json())
-        .then(data => this.setState({
-          mySnacks: data
+        .then(user => this.setState({
+          mySnacks: user.snacks
         }))
     }
   }
 
   render(){
-    console.log(this.state)
-    return <>
+    return (<>
       <section>
-        <h2>Snacks</h2>
+        <h2>All Snacks</h2>
         <ol>
           {
             // THIS IS NOT VERY DRY AND I OUGHT TO REFACTOR
-            this.state.allSnacks.map(snack => <li>{ snack.name }</li>)
+            this.state.allSnacks.map(snack => <li key={ snack.id }>{ snack.name }</li>)
           }
         </ol>
       </section>
@@ -42,11 +49,11 @@ class SnackDashboard extends React.Component {
         <ol>
           {
             // THIS IS NOT VERY DRY AND I OUGHT TO REFACTOR
-            this.state.mySnacks.map(snack => <li>{ snack.name }</li>)
+            this.state.mySnacks.map(snack => <li key={ snack.id }>{ snack.name }</li>)
           }
         </ol>
       </section>
-    </>
+    </>)
   }
 
 }

@@ -5,10 +5,12 @@ class LogIn extends React.Component {
   state = {
     logIn: false,
     username: "",
-    password: ""
+    password: "",
+    errors: []
   }
 
-  logInSubmit = () => {
+  logInSubmit = event => {
+    event.preventDefault()
     fetch("http://localhost:3000/tokens", {
       method: "POST",
       headers: {
@@ -18,10 +20,20 @@ class LogIn extends React.Component {
         username: this.state.username,
         password: this.state.password
       })
-    })
+    }).then(res => res.json())
+      .then(data => {
+        if (data.errors) {
+          this.setState({
+            errors: data.errors
+          })
+        } else {
+          this.props.logInUser(data.token, data.user_id)
+        }
+      })
   }
 
-  signUpSubmit = () => {
+  signUpSubmit = event => {
+    event.preventDefault()
     fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
@@ -31,7 +43,16 @@ class LogIn extends React.Component {
         username: this.state.username,
         password: this.state.password
       })
-    })
+    }).then(res => res.json())
+      .then(data => {
+        if (data.errors) {
+          this.setState({
+            errors: data.errors
+          })
+        } else {
+          this.props.logInUser(data.token, data.user_id)
+        }
+      })
   }
 
   onChange = event => {
@@ -42,38 +63,54 @@ class LogIn extends React.Component {
 
   render(){
     return <>
+      <ul>
+        {
+          this.state.errors.map(error => <li>{ error }</li>)
+        }
+      </ul>
       {
-
-      this.state.logIn 
-
-      ? 
-      
-      <section>
-        <h2>Log In</h2>
-        <button onClick={ () => this.setState({ logIn: false }) }>I need to register!!!</button>
-        <form onSubmit={ this.logInSubmit }>
-          <label htmlFor="log_in_username">Username</label>
-          <input id="log_in_username" type="text" onChange={ this.onChange } name="username" value={ this.state.username } />
-          <label htmlFor="log_in_password">Password</label>
-          <input id="log_in_password" type="text" onChange={ this.onChange } name="password" value={ this.state.password } />
-          <input type="submit" />
-        </form>
-      </section>
-
-      :
-
-      <section>
-        <h2>Sign up</h2>
-        <button onClick={ () => this.setState({ logIn: true }) }>I already signed up!!!</button>
-        <form onSubmit={ this.signUpSubmit }>
-          <label htmlFor="sign_up_username">Username</label>
-          <input id="sign_up_username" type="text" onChange={ this.onChange } name="username" value={ this.state.username } />
-          <label htmlFor="sign_up_password">Password</label>
-          <input id="sign_up_password" type="text" onChange={ this.onChange } name="password" value={ this.state.password } />
-          <input type="submit" />
-        </form>
-      </section>
-    }
+        this.state.logIn 
+        ? 
+        <section>
+          <h2>Log In</h2>
+          <button onClick={ () => this.setState({ logIn: false }) }>I need to register!!!</button>
+          <form onSubmit={ this.logInSubmit }>
+            <label  htmlFor="log_in_username">Username</label>
+            <input  id="log_in_username" 
+                    type="text" 
+                    onChange={ this.onChange /* for controlled form input status */ } 
+                    name="username" 
+                    value={ this.state.username /* for controlled form input status */ } />
+            <label  htmlFor="log_in_password">Password</label>
+            <input  id="log_in_password" 
+                    type="password" 
+                    onChange={ this.onChange } 
+                    name="password" 
+                    value={ this.state.password } />
+            <input type="submit" />
+          </form>
+        </section>
+        :
+        <section>
+          <h2>Sign up</h2>
+          <button onClick={ () => this.setState({ logIn: true }) }>I already signed up!!!</button>
+          <form onSubmit={ this.signUpSubmit }>
+            <label  htmlFor="sign_up_username">Username</label>
+            <input  id="sign_up_username" 
+                    type="text" 
+                    onChange={ this.onChange } 
+                    name="username" 
+                    value={ this.state.username } />
+            <label  htmlFor="sign_up_password">Password</label>
+            <input  id="sign_up_password" 
+                    type="password" 
+                    onChange={ this.onChange } 
+                    name="password" 
+                    value={ this.state.password } />
+            <input type="submit" />
+          </form>
+        </section>
+      }
     </>
   }
 

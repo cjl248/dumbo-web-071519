@@ -6,7 +6,8 @@ class ApplicationController < ActionController::API
     }
     token = JWT.encode(payload, secret_token, 'HS256')
     {
-      token: token
+      token: token,
+      user_id: user.id
     }
   end
 
