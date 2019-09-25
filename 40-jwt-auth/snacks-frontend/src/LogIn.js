@@ -1,0 +1,82 @@
+import React from 'react';
+
+class LogIn extends React.Component {
+
+  state = {
+    logIn: false,
+    username: "",
+    password: ""
+  }
+
+  logInSubmit = () => {
+    fetch("http://localhost:3000/tokens", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    })
+  }
+
+  signUpSubmit = () => {
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    })
+  }
+
+  onChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  render(){
+    return <>
+      {
+
+      this.state.logIn 
+
+      ? 
+      
+      <section>
+        <h2>Log In</h2>
+        <button onClick={ () => this.setState({ logIn: false }) }>I need to register!!!</button>
+        <form onSubmit={ this.logInSubmit }>
+          <label htmlFor="log_in_username">Username</label>
+          <input id="log_in_username" type="text" onChange={ this.onChange } name="username" value={ this.state.username } />
+          <label htmlFor="log_in_password">Password</label>
+          <input id="log_in_password" type="text" onChange={ this.onChange } name="password" value={ this.state.password } />
+          <input type="submit" />
+        </form>
+      </section>
+
+      :
+
+      <section>
+        <h2>Sign up</h2>
+        <button onClick={ () => this.setState({ logIn: true }) }>I already signed up!!!</button>
+        <form onSubmit={ this.signUpSubmit }>
+          <label htmlFor="sign_up_username">Username</label>
+          <input id="sign_up_username" type="text" onChange={ this.onChange } name="username" value={ this.state.username } />
+          <label htmlFor="sign_up_password">Password</label>
+          <input id="sign_up_password" type="text" onChange={ this.onChange } name="password" value={ this.state.password } />
+          <input type="submit" />
+        </form>
+      </section>
+    }
+    </>
+  }
+
+}
+
+export default LogIn
