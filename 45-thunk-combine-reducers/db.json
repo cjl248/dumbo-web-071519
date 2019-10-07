@@ -1,0 +1,64 @@
+{
+  "pokemon": [
+    {
+      "id": 840,
+      "name": "Sirfetch'd",
+      "weight": 274
+    },
+    {
+      "id": 143,
+      "name": "Snorlax",
+      "weight": 1000
+    },
+    {
+      "name": "Trubbish",
+      "weight": "999",
+      "id": 841
+    },
+    {
+      "name": "sfhdfsjkdhf",
+      "weight": "99",
+      "id": 842
+    },
+    {
+      "name": "whatever",
+      "weight": "99",
+      "id": 843
+    },
+    {
+      "id": 844
+    },
+    {
+      "name": "turtle",
+      "weight": "99",
+      "id": 845
+    },
+    {
+      "name": "sjkfsfkjh",
+      "weight": "99",
+      "id": 846
+    },
+    {
+      "name": "Sporty Spice",
+      "weight": "99",
+      "id": 847
+    },
+    {
+      "name": "Wishy Washy",
+      "weight": "99",
+      "id": 848
+    }
+  ],
+  "disneyPrincesses": [
+    {
+      "id": 1,
+      "name": "Moana"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "name": "Coco"
+    }
+  ]
+}
